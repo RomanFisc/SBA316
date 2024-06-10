@@ -4,8 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SBA 316</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  
+  <div id="content">
+    <form id="recipe">
+      <select>
+        <option value="none">Please Select a recipe type</option>
+        <option value="gluten-free">Gluten-Free</option>
+        <option value="dairy-free">Dairy-Free</option>
+        <option value="paleo">Paleo</option>
+        <option value="dairy-free">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+      </select>
+      <button type="submit">Generate Recipe</button>
+    </form>
+  </div>
+  <div id="form-error">
+  </div>
+  <script src="index.js"></script>
 </body>
 </html>
