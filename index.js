@@ -3,13 +3,20 @@ document.addEventListener('DOMContentLoaded', function(){
   const formError = document.getElementById("form-error");
   const clear = document.querySelector(".clear")
 
+  clear.style.display = 'none'
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     const diet = document.querySelector('select').value;
     if (diet === 'none') {
         formError.textContent = 'Please select a diet type.';
     } else {
+      if (window.confirm(`Are you sure you want to get a recipe with a ${diet} preference?`)){
         getRecipe(diet);
+      } else {
+        window.alert("Please select a different diet preference")
+        formError.textContent = 'Select a diet type.';
+      }
     }
   });
 
@@ -41,6 +48,8 @@ document.addEventListener('DOMContentLoaded', function(){
       }
 
   function displayRecipe(recipe) {
+      clear.style.display = 'block'
+
       formError.textContent = '';
   
       let recipeBox = document.getElementById('recipe-output')
@@ -64,9 +73,14 @@ document.addEventListener('DOMContentLoaded', function(){
       link.textContent = "Recipe Link"
       recipeBox.appendChild(link)
       recipeBox.style.display = "block"
+
+      clear.addEventListener('click', (function() {
+        recipeBox.style.display = 'none'
+        clear.style.display = 'none'
+      }))
+    
   }
 
-  clear.addEventListener('click', (function() {
-    recipeBox.clear();
-  }))
+  
 });
+

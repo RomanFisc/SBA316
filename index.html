@@ -9,9 +9,11 @@
 <body>
   <div class="main">
     <div id="content">
-      <h1>Select a recipe based on different dietary needs</h1>
+      <div class="header">
+        <h1>Select a recipe based on different dietary needs</h1>
+      </div>
       <form id="recipe">
-        <select>
+        <select required>
           <option value="none">Please Select a recipe type</option>
           <option value="gluten-free">Gluten-Free</option>
           <option value="dairy-free">Dairy-Free</option>
@@ -21,12 +23,12 @@
         </select>
         <button type="submit">Generate Recipe</button>
       </form>
-      <button class="clear">Clear recipe</button>
     </div>
     <div id="form-error">
     </div>
-    <div id="recipe-output" style="display: none;"></div>  
-    
+    <div id="recipe-output" style="display: none;">
+    </div>  
+    <button class="clear">Clear recipe</button>
   </div>
   <script src="index.js"></script>
 </body>
